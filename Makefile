@@ -1,6 +1,6 @@
 # Watson
 
-PYTHON ?= python
+PYTHON ?= python3
 PIP ?= pip
 
 VENV = virtualenv
@@ -55,3 +55,8 @@ docs: install-dev
 completion-scripts:
 	scripts/create-completion-script.sh bash
 	scripts/create-completion-script.sh zsh
+
+.PHONY: wheel
+wheel:
+	$(PYTHON) setup.py bdist_wheel
+
